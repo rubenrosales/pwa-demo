@@ -1,0 +1,9 @@
+{
+    "images": [
+      {"name": "IMG_5774.jpg", "field1": "test",  "field2": "test"},
+      {"name": "IMG_5775.jpg", "field1": "te2st",  "field2": "test"},
+      {"name": "IMG_5776.jpg", "field1": "tes2t",  "field2": "test"},
+      {"name": "IMG_5777.jpg", "field1": "test3",  "field2": "test"},
+      {"name": "IMG_5778.jpg", "field1": "test4",  "field2": "test"}
+    ]
+}
