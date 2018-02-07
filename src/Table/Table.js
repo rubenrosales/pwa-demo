@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import './Table.css'
 import data from '../data/data.json';
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class Table extends Component {
     // Adds a class constructor that assigns the initial state values:
     constructor () {
         super();
         this.state = {
-            btcprice: '',
-            ltcprice: '',
-            ethprice: ''
+            tImages: []
         };
     }
 
     componentDidMount () {
-       
+        axios.get('https://api.myjson.com/bins/ivhsh')
+                .then(response => {
+                    this.setState({ tImages: response.data.images });
+                })
+                // Catch any error here
+                .catch(error => {
+                    console.log(error)
+                })
     }
     // This is called when an instance of a component is being created and inserted into the DOM.
     componentWillMount () {
@@ -26,6 +33,8 @@ class Table extends Component {
                 <td>{entry.name}</td>
                 <td>{entry.field1}</td>
                 <td>{entry.field2}</td>
+                <Link to={`/post/${entry.name}`}>{entry.name}</Link>
+
             </tr>;
         //<Image source={image} key={image} />;
     }
@@ -44,7 +53,7 @@ class Table extends Component {
                             <th>Lastname</th> 
                             <th>Age</th>
                         </tr>
-                        {this.createEntries(data.images)}
+                        {this.createEntries(this.state.tImages)}
                     </table>
                 </div>
             </div>
